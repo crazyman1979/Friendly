@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Friendly.Filtering.Abstractions\Friendly.Filtering.Abstractions.csproj" />
+      <ProjectReference Include="..\Friendly.Filtering\Friendly.Filtering.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Sprint.Filter.OData">
+        <Version>1.2.12</Version>
+      </PackageReference>
+    </ItemGroup>
+
+</Project>
