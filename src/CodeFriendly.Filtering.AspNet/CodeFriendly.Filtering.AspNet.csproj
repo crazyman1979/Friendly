@@ -5,7 +5,10 @@
         <PackageId>CodeFriendly.Filtering.AspNet</PackageId>
         <Version>0.0.1</Version>
         <Authors>Richard Friend</Authors>
-        <Company>CodeFriendly Tech</Company>
+        <Company>Friendly Tech</Company>
+        <RepositoryUrl>https://github.com/crazyman1979/Friendly</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageIconUrl>https://github.com/crazyman1979/Friendly/engineer.png</PackageIconUrl>
     </PropertyGroup>
 
     <ItemGroup>
