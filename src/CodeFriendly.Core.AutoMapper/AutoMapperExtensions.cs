@@ -44,7 +44,6 @@ namespace CodeFriendly.Core.AutoMapper
             Func<ICollection<TTargetMember>, TSourceMember, TTargetMember> currentItemResolver )
         where TSource : class
         where TDestination: class
-        
         {
             return expression.ForMember(targetResolver, o =>
             {
