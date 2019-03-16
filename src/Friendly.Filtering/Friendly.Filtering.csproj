@@ -2,6 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <PackageId>Friendly.Filtering</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>Richard Friend</Authors>
+        <Company>FriendlyTech</Company>
     </PropertyGroup>
 
     <ItemGroup>

@@ -40,6 +40,7 @@ namespace Friendly.ServiceModel.EntityFramework
 
         public virtual async Task<IEnumerable<TDomain>> GetAll(IFilterOptions filterOptions)
         {
+            //TODO - We need to be passing this to the server for the filtering..
             var filter = FilterParser.Build<TDomain>(filterOptions);
             var contextSet = Context.Set<TEntity>().AsNoTracking();
             var query = OnGetAllBeforeQuery(contextSet) ?? contextSet;
