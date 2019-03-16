@@ -7,6 +7,6 @@ namespace CodeFriendly.Patch
         TSource CreateSourceObject(TDestination entity);
         TDestination CreateDestinationObject(TSource domain);
         TDestination PatchDestinationObject<TPatch>(TPatch source, TDestination target)
-            where TPatch: TSource, IPatchable;
+            where TPatch: TSource;
     }
 }

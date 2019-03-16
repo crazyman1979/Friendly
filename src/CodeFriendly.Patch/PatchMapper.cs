@@ -39,7 +39,7 @@ namespace CodeFriendly.Patch
         }
 
         public TDestination PatchDestinationObject<TPatch>(TPatch source, TDestination target)
-            where TPatch: TSource, IPatchable
+            where TPatch: TSource
         {
             var entity = Mapper.Map(source, target, o=>o.Items.Add("context", new PatchMapContext(Store)));
             OnSourceToDestinationPatched(source, entity);

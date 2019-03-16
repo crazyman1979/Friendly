@@ -40,7 +40,6 @@ namespace CodeFriendly.ServiceModel.EntityFramework
 
         public virtual async Task<IEnumerable<TDomain>> GetAll(IFilterOptions filterOptions)
         {
-            //TODO - We need to be passing this to the server for the filtering..
             var filter = FilterParser.Build<TDomain>(filterOptions);
             var contextSet = Context.Set<TEntity>().AsNoTracking();
             var query = OnGetAllBeforeQuery(contextSet) ?? contextSet;
@@ -63,7 +62,7 @@ namespace CodeFriendly.ServiceModel.EntityFramework
             return await Get(pks);
         }
 
-        public async Task<TDomain> Patch<T>(T updateModel) where T : TDomain, IPatchable
+        public async Task<TDomain> Patch<T>(T updateModel) where T : TDomain
         {
             var existing = await GetEntity(GetPrimaryKey(updateModel));
             var updated = PatchMapper.PatchDestinationObject(updateModel, existing);

@@ -11,6 +11,6 @@ namespace CodeFriendly.ServiceModel.Abstractions
         Task<TDomain> Get(params object [] keyValues);
         Task<IEnumerable<TDomain>> GetAll(IFilterOptions filterOptions);
         Task<TDomain> Create(TDomain createModel);
-        Task<TDomain> Patch<T>(T updateModel) where T: TDomain, IPatchable;
+        Task<TDomain> Patch<T>(T updateModel) where T: TDomain;
     }
 }
