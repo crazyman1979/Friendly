@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <PackageId>CodeFriendly.ServiceModel.Abstractions</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>Richard Friend</Authors>
+        <Company>CodeFriendly Tech</Company>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CodeFriendly.Filtering.Abstractions\CodeFriendly.Filtering.Abstractions.csproj" />
+      <ProjectReference Include="..\CodeFriendly.Patch.Abstractions\CodeFriendly.Patch.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>

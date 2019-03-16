@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <PackageId>CodeFriendly.ServiceModel.EntityFramework</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>Richard Friend</Authors>
+        <Company>CodeFriendly Tech</Company>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CodeFriendly.Filtering.EntityFramework\CodeFriendly.Filtering.EntityFramework.csproj" />
+      <ProjectReference Include="..\CodeFriendly.Filtering\CodeFriendly.Filtering.csproj" />
+      <ProjectReference Include="..\CodeFriendly.Patch.Abstractions\CodeFriendly.Patch.Abstractions.csproj" />
+      <ProjectReference Include="..\CodeFriendly.Patch\CodeFriendly.Patch.csproj" />
+      <ProjectReference Include="..\CodeFriendly.ServiceModel.Abstractions\CodeFriendly.ServiceModel.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore">
+        <Version>2.2.3</Version>
+      </PackageReference>
+    </ItemGroup>
+
+</Project>

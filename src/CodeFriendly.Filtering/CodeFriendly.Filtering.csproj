@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <PackageId>CodeFriendly.Filtering</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>Richard Friend</Authors>
+        <Company>CodeFriendly Tech</Company>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CodeFriendly.Core\CodeFriendly.Core.csproj" />
+      <ProjectReference Include="..\CodeFriendly.Filtering.Abstractions\CodeFriendly.Filtering.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Linq.Dynamic.Core">
+        <Version>1.0.11</Version>
+      </PackageReference>
+    </ItemGroup>
+
+</Project>
