@@ -6,9 +6,9 @@
         <Version>0.0.1</Version>
         <Authors>Richard Friend</Authors>
         <Company>Friendly Tech</Company>
-        <RepositoryUrl>https://github.com/crazyman1979/Friendly</RepositoryUrl>
+        <RepositoryUrl>https://github.com/friendly-tech/Friendly</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageIconUrl>https://raw.githubusercontent.com/crazyman1979/Friendly/master/engineer.png</PackageIconUrl>
+        <PackageIconUrl>https://raw.githubusercontent.com/friendly-tech/Friendly/master/engineer.png</PackageIconUrl>
     </PropertyGroup>
 
 </Project>
