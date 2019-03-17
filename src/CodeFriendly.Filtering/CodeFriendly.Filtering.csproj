@@ -10,6 +10,7 @@
         <RepositoryUrl>https://github.com/friendly-tech/Friendly</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageIconUrl>https://raw.githubusercontent.com/friendly-tech/Friendly/master/engineer.png</PackageIconUrl>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     </PropertyGroup>
 
     <ItemGroup>
