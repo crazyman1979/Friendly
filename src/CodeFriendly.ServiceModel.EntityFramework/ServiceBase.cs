@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using AutoMapper.QueryableExtensions;
 using CodeFriendly.Core;
@@ -40,9 +41,15 @@ namespace CodeFriendly.ServiceModel.EntityFramework
 
         public virtual async Task<IEnumerable<TDomain>> GetAll(IFilterOptions filterOptions)
         {
+            return await GetAllInternal(filterOptions, OnGetAllBeforeQuery);
+        }
+        
+        protected virtual async Task<IEnumerable<TDomain>> GetAllInternal(IFilterOptions filterOptions, 
+            Func<IQueryable<TEntity>, IQueryable<TEntity>> beforeQuery)
+        {
             var filter = FilterParser.Build<TDomain>(filterOptions);
             var contextSet = Context.Set<TEntity>().AsNoTracking();
-            var query = OnGetAllBeforeQuery(contextSet) ?? contextSet;
+            var query = beforeQuery !=null ? beforeQuery(contextSet) : contextSet;
             var items = await query
                 .WithFilter(filter, PatchMapper.Mapper)
                 .ToListAsync();
@@ -51,6 +58,13 @@ namespace CodeFriendly.ServiceModel.EntityFramework
                 .AsQueryable()
                 .WithFilter(filter);
         }
+
+        protected virtual async Task<IEnumerable<TDomain>> GetAllInternal(IFilterOptions filterOptions,
+            Expression<Func<TEntity, bool>> expression)
+        {
+            return await GetAllInternal(filterOptions, q => q.Where(expression));
+        }
+        
 
         public virtual async Task<TDomain> Create(TDomain createModel)
         {
@@ -62,6 +76,7 @@ namespace CodeFriendly.ServiceModel.EntityFramework
             return await Get(pks);
         }
 
+        
         public async Task<TDomain> Patch<T>(T updateModel) where T : TDomain
         {
             var existing = await GetEntity(GetPrimaryKey(updateModel));
