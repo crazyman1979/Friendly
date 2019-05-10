@@ -18,8 +18,7 @@ namespace CodeFriendly.Patch
         }
         public IModelBinder GetBinder(ModelBinderProviderContext context)
         {
-            if (!context.Metadata.ModelType.IsClass ||
-                !typeof(IPatchable).IsAssignableFrom(context.Metadata.ModelType)) return null;
+            if (!context.Metadata.ModelType.IsClass || context.Metadata.ModelType == typeof(string)) return null;
             var bodyBinderProvider = _providers.OfType<BodyModelBinderProvider>().Single();
             var bodyBinder = bodyBinderProvider.GetBinder(context);
             return new PatchModelBinder(bodyBinder, _patchStore);
