@@ -51,6 +51,7 @@ namespace CodeFriendly.ServiceModel.EntityFramework
             var contextSet = Context.Set<TEntity>().AsNoTracking();
             var query = beforeQuery !=null ? beforeQuery(contextSet) : contextSet;
             var items = await query
+                .AsNoTracking()
                 .WithFilter(filter, PatchMapper.Mapper)
                 .ToListAsync();
             return items

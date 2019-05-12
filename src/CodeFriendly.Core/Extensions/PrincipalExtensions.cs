@@ -13,7 +13,7 @@ namespace CodeFriendly.Core
         public static string GetRemoteIdentifier(this ClaimsPrincipal principal)
         {
             return (principal?.Identity as ClaimsIdentity)?
-                .FindFirst(ClaimTypes.NameIdentifier).Value;
+                .FindFirst(ClaimTypes.NameIdentifier)?.Value;
         }
     }
 }
