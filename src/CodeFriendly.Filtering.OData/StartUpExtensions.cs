@@ -5,7 +5,7 @@ namespace CodeFriendly.Filtering.OData
 {
     public static class StartUpExtensions
     {
-        public static IServiceCollection AddODataFiltering(this IServiceCollection services)
+        public static IServiceCollection AddFriendlyODataFiltering(this IServiceCollection services)
         {
             return services.AddScoped<IFilterParser, ODataFilterParser>();
         }

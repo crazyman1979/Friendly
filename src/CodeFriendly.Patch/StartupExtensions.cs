@@ -15,7 +15,7 @@ namespace CodeFriendly.Patch
 
         public static IMvcCoreBuilder AddFriendlyPatchSupport(this IMvcCoreBuilder builder)
         {
-            builder.Services.AddScoped<IPatchStore, HttpRequestStore>();
+            builder.Services.AddSingleton<IPatchStore, HttpRequestStore>();
             return builder.AddMvcOptions(opts => opts.AddPatchModelBinder(builder.Services.GetService<IPatchStore>()));
         }
     }
