@@ -106,7 +106,7 @@ namespace CodeFriendly.ServiceModel.EntityFramework
 
         protected virtual IQueryable<TEntity> OnGetAllBeforeQuery(IQueryable<TEntity> query)
         {
-            return null;
+            return query;
         }
 
         protected virtual object[] GetPrimaryKey(TDomain domainModel)
