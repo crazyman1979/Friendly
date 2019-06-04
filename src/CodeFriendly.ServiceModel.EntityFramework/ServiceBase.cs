@@ -76,6 +76,21 @@ namespace CodeFriendly.ServiceModel.EntityFramework
             var pks = GetPrimaryKey(PatchMapper.CreateSourceObject(entity));
             return await Get(pks);
         }
+        
+        public virtual async Task<IEnumerable<TDomain>> Create(IEnumerable<TDomain> createModels)
+        {
+            var ret = new List<TEntity>();
+            foreach (var createModel in createModels)
+            {
+                var entity = PatchMapper.CreateDestinationObject(createModel);
+                Context.Attach(entity);
+                await OnCreatingBeforeSave(createModel, entity);
+                ret.Add(entity);
+            }
+            
+            await Context.SaveChangesAsync();
+            return ret.Select(r=> PatchMapper.CreateSourceObject(r)).ToList();
+        }
 
         
         public async Task<TDomain> Patch<T>(T updateModel) where T : TDomain
