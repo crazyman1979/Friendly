@@ -72,6 +72,12 @@ namespace CodeFriendly.Patch
         {
             return expression;
         }
+        
+        // ReSharper disable once VirtualMemberNeverOverridden.Global
+        protected internal virtual void OnConfigureReverseMapper(IMappingExpression<TDestination, TSource> expression)
+        {
+            
+        }
 
         protected virtual void OnConfigureProfiles(IMapperConfigurationExpression expression)
         {

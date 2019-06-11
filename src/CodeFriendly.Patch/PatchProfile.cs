@@ -17,7 +17,8 @@ namespace CodeFriendly.Patch
         {
             var expression = CreateMap<TDomain, TEntity>();
             expression = patchMapper.OnConfigureMapper(expression);
-            expression.ReverseMap();
+            patchMapper.OnConfigureReverseMapper(expression.ReverseMap());
+            
             ForAllPropertyMaps(m => m.TypeMap.SourceType == typeof(TDomain) && m.TypeMap.DestinationType == typeof(TEntity), (pm, opt) =>
             {
                 opt.Condition((source, destination, arg3, arg4, resolutionContext) => ShouldMap(source, resolutionContext, pm));
