@@ -10,5 +10,7 @@ namespace CodeFriendly.Patch.Tests.Models.Domain
         public DateTime? Property3 { get; set; }
         public HashSet<string> DirtyProperties { get; set; }
         public string Id { get; set; }
+        
+        public SimpleObject2 SimpleObject2 { get; set; }
     }
 }

@@ -1,14 +1,52 @@
 using System;
 using System.Collections.Generic;
 using CodeFriendly.Patch.Tests.Models;
+using CodeFriendly.Patch.Tests.Models.Entity;
 using Xunit;
 
 namespace CodeFriendly.Patch.Tests
 {
     public class SimplePatchTests
     {
+        
+        
 
+        [Fact]
+        public void SimpleObject2_MapsEntityToDomain()
+        {
+            var x = new SimpleObject2();
+            x.Id = "XXXX";
+            
+            
+            var mapper = new SimpleObjectMapper2();
 
+            var y = mapper.CreateSourceObject(x);
+            
+            Assert.Equal(y.Id, "XXXX");
+
+        }
+        
+        
+        [Fact]
+        public void SimpleObject_MapsEntityToDomain()
+        {
+            var x = new SimpleObject()
+            {
+                SimpleObject2 = new SimpleObject2()
+                {
+                    Id = "XXXX"
+                }
+            };
+            
+            
+            var mapper = new SimpleObjectMapper();
+
+            var y = mapper.CreateSourceObject(x);
+            
+            Assert.Equal(y.SimpleObject2.Id, "XXXX");
+        }
+        
+        
         [Fact]
         public void SimpleObject_MapsDomainToEntity_All()
         {

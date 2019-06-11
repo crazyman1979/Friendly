@@ -8,5 +8,7 @@ namespace CodeFriendly.Patch.Tests.Models.Entity
         public int Property2 { get; set; }
         public DateTime? Property3 { get; set; }
         public string Id { get; set; }
+        
+        public SimpleObject2 SimpleObject2 { get; internal set; }
     }
 }
