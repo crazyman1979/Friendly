@@ -22,7 +22,7 @@ namespace CodeFriendly.Patch.Tests
 
             var y = mapper.CreateSourceObject(x);
             
-            Assert.Equal(y.Id, "XXXX");
+            Assert.Equal("XXXX", y.Id);
 
         }
         
@@ -43,7 +43,7 @@ namespace CodeFriendly.Patch.Tests
 
             var y = mapper.CreateSourceObject(x);
             
-            Assert.Equal(y.SimpleObject2.Id, "XXXX");
+            Assert.Equal("XXXX", y.SimpleObject2.Id);
         }
         
         

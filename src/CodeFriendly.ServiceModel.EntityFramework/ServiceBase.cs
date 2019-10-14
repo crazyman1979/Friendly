@@ -89,7 +89,12 @@ namespace CodeFriendly.ServiceModel.EntityFramework
             }
             
             await Context.SaveChangesAsync();
-            return ret.Select(r=> PatchMapper.CreateSourceObject(r)).ToList();
+            var results = ret.Select(r=> new {data = r, domain = PatchMapper.CreateSourceObject(r)}).ToList();
+            foreach (var r in results)
+            {
+                await OnCreated(r.domain, r.data);
+            }
+            return results.Select(r=>r.domain).ToList();
         }
 
         
@@ -110,6 +115,11 @@ namespace CodeFriendly.ServiceModel.EntityFramework
         }
 
         protected virtual Task OnCreatingBeforeSave(TDomain domain, TEntity entity)
+        {
+            return Task.CompletedTask;
+        }
+        
+        protected virtual Task OnCreated(TDomain domain, TEntity entity)
         {
             return Task.CompletedTask;
         }
