@@ -10,7 +10,16 @@
         <RepositoryType>git</RepositoryType>
         <PackageIconUrl>https://raw.githubusercontent.com/friendly-tech/Friendly/master/engineer.png</PackageIconUrl>
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    </PropertyGroup>
+    
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
 
     <ItemGroup>
       <ProjectReference Include="..\CodeFriendly.Filtering.Abstractions\CodeFriendly.Filtering.Abstractions.csproj" />
